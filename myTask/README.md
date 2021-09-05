@@ -35,14 +35,14 @@ Acceptance Criteria
 -----
 
 1. [x] PostgreSQL database successfully connected.
-2. [ ] There should be no use of mock data throughout the app.
-3. [ ] The application should behave just as before with mock data, For example:
+2. [x] There should be no use of mock data throughout the app.
+3. [x] The application should behave just as before with mock data, For example:
   * [x] when submits new artist record, be able to see it populate in /artists, as well as search for the artist by name.
   * [x] be able to go `/artist/<artist-id>` to visit a particular artist’s
-  * [ ] Venues should continue to be displayed in groups by city and state.
+  * [x] Venues should continue to be displayed in groups by city and state.
   * [x] Search should be partial string matching and case-insensitive.
-  * [ ] Past shows versus Upcoming shows should be distinguished in Venue and Artist pages.
-  * [ ] A user should be able to click on the venue for an upcoming show in the Artist's page, and on that Venue's page, see the same show in the Venue Page's upcoming shows section. (assumption: artist creates venues)
+  * [x] Past shows versus Upcoming shows should be distinguished in Venue and Artist pages.
+  * [x] A user should be able to click on the venue for an upcoming show in the Artist's page, and on that Venue's page, see the same show in the Venue Page's upcoming shows section.
 
 4. [x] Define the models in a different file such as `models.py`.
   * [x] The right _type_ of relationship and parent-child dynamics.
@@ -52,60 +52,6 @@ Acceptance Criteria
 
 
 
-
-## Sample Data
-
-
-Four Fives
-Lucena
-avenida sol
-+34 111 111 111
-https://www.facebook.com/
-
-https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/480/public/media/image/2015/10/524042-analisis-rock-band-4.jpg?itok=LNCy91q-
-
-https://learnenglishteens.britishcouncil.org/
-
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
-
-
-
-
-
-#### Venue Create
-('name', 'Four Fives'),
-('city', 'Armn'),
-('state', 'AL'),
-('address', 'Acasd'),
-('phone', ''),
-('genres', 'Rock n Roll'),
-('facebook_link', ''),
-('image_link', ''),
-('website_link', ''),
-('seeking_description', '')])
-
-
-
-#### Artist Create
-('name', 'Bottles'),
-('city', 'Chicago'),
-('state', 'AL'),
-('address', 'Acasd'),
-('phone', ''),
-('genres', 'Rock n Roll'),
-('facebook_link', ''),
-('image_link', ''),
-('website_link', ''),
-('seeking_description', '')])
-
-
-
-
-## Pending
-* --- not understand ---
-* TODO: on unsuccessful db insert, flash an error instead.
 
 
 

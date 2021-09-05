@@ -53,24 +53,28 @@ def venues():
   venues = Venue.query.order_by('id').all()
 
   no_repeat = set()
+  clean_data = []
+  
+  for ven in venues:
+      no_repeat.add((ven.city, ven.state))
 
-  db_clean = []
-  for v in venues:
-      v_item = {}
-      v_item['city'] = v.city
-      v_item['state'] = v.state
-      v_venues = []
-      print(">>>>>> v <<<<<<", v)
-      for place in venues:
-          if v.city == place.city and v.state == place.state:
-              v_venues.append({ "id":place.id,"name":place.name })
-      v_item['venues'] = v_venues
-      # for v_ in v_venues:
-          # no_repeat.add(v_.name)
-          # print(">>>>>> v_ <<<<<<", v_)
-      db_clean.append(v_item)
+  for dont in no_repeat:
+      clean_data.append({
+          "city": dont[0],
+          "state": dont[1],
+          "venues": []
+      })
 
-  return render_template('pages/venues.html', areas=db_clean);
+  print(">>>>>>> clean_data <<<<<<<<<<", clean_data)
+  for vens in venues:
+      for locate in clean_data:
+          if vens.city == locate['city'] and vens.state == locate['state']:
+              locate['venues'].append({
+                  "id": vens.id,
+                  "name": vens.name,
+              })
+
+  return render_template('pages/venues.html', areas=clean_data);
 
 @app.route('/venues/search', methods=['POST'])
 def search_venues():
