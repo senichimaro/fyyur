@@ -17,6 +17,7 @@ from flask_migrate import Migrate
 import sys
 import os
 from models import *
+import datetime
 
 
 
@@ -50,16 +51,23 @@ def index():
 def venues():
 
   venues = Venue.query.order_by('id').all()
+
+  no_repeat = set()
+
   db_clean = []
   for v in venues:
       v_item = {}
       v_item['city'] = v.city
       v_item['state'] = v.state
       v_venues = []
+      print(">>>>>> v <<<<<<", v)
       for place in venues:
           if v.city == place.city and v.state == place.state:
               v_venues.append({ "id":place.id,"name":place.name })
       v_item['venues'] = v_venues
+      # for v_ in v_venues:
+          # no_repeat.add(v_.name)
+          # print(">>>>>> v_ <<<<<<", v_)
       db_clean.append(v_item)
 
   return render_template('pages/venues.html', areas=db_clean);
@@ -80,7 +88,42 @@ def search_venues():
 def show_venue(venue_id):
 
   venue = Venue.query.get(venue_id)
-  return render_template('pages/show_venue.html', venue=venue)
+  shows = Show.query.filter_by(venue_id=venue_id)
+
+  old_shows = []
+  future_shows = []
+  present = datetime.datetime.now()
+  # print(">>>>>>>>>> present <<<<<<<<<<<<",present)
+  for show in shows:
+      artist_show = {}
+      artist_show['venue_id'] = show.venue_id
+      artist_show['artist_id'] = show.artist_id
+      artist_show['start_time'] = format_datetime(str(show.start_time))
+      if show.start_time > present:
+          future_shows.append(artist_show)
+      else:
+          old_shows.append(artist_show)
+  # -----
+  make_venue = {
+    "id": venue.id,
+    "name": venue.name,
+    "genres": venue.genres,
+    "address": venue.address,
+    "city": venue.city,
+    "state": venue.state,
+    "phone": venue.phone,
+    "website_link": venue.website_link,
+    "facebook_link": venue.facebook_link,
+    "seeking_talent": venue.seeking_talent,
+    "seeking_description":venue.seeking_description,
+    "image_link": venue.image_link,
+    "past_shows": old_shows,
+    "upcoming_shows": future_shows,
+    "past_shows_count": len(old_shows),
+    "upcoming_shows_count": len(future_shows)
+  }
+
+  return render_template('pages/show_venue.html', venue=make_venue)
 
 #  Create Venue
 #  ----------------------------------------------------------------
@@ -139,12 +182,33 @@ def create_venue_submission():
 
 @app.route('/venues/<venue_id>', methods=['DELETE'])
 def delete_venue(venue_id):
-  # TODO: Complete this endpoint for taking a venue_id, and using
-  # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
+    # TODO: Complete this endpoint for taking a venue_id, and using
+    # SQLAlchemy ORM to delete a record. Handle cases where the session commit could fail.
 
-  # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
-  # clicking that button delete it from the db then redirect the user to the homepage
-  return None
+    error = False
+    try:
+      venue = Venue.query.get(venue_id)
+      venue_name = venue.name
+      db.session.delete(venue)
+      db.session.commit()
+    except:
+      error = True
+      flash('An error occurred. Venue ' + venue_name + ' could not be deleted.')
+      db.session.rollback()
+      print(sys.exc_info())
+    finally:
+      db.session.close()
+    # ----
+    if error:
+        abort(400)
+    else:
+        flash('Venue ' + venue_name + ' was successfully deleted')
+        return redirect(url_for('index'))
+
+
+    # BONUS CHALLENGE: Implement a button to delete a Venue on a Venue Page, have it so that
+    # clicking that button delete it from the db then redirect the user to the homepage
+
 
 #  Update Venue
 #  ----------------------------------------------------------------
@@ -211,8 +275,40 @@ def search_artists():
 @app.route('/artists/<int:artist_id>')
 def show_artist(artist_id):
 
-  artist = Artist.query.get(artist_id)
-  return render_template('pages/show_artist.html', artist=artist)
+    artist = Artist.query.get(artist_id)
+    shows = Show.query.filter_by(artist_id=artist_id)
+
+    old_shows = []
+    future_shows = []
+    present = datetime.datetime.now()
+    # print(">>>>>>>>>> present <<<<<<<<<<<<",present)
+    for show in shows:
+        artist_show = {}
+        artist_show['venue_id'] = show.venue_id
+        artist_show['artist_id'] = show.artist_id
+        artist_show['start_time'] = format_datetime(str(show.start_time))
+        if show.start_time > present:
+            future_shows.append(artist_show)
+        else:
+            old_shows.append(artist_show)
+    # -----
+    make_artist = {
+      "id": artist.id,
+      "name": artist.name,
+      "genres": artist.genres,
+      "city": artist.city,
+      "state": artist.state,
+      "phone": artist.phone,
+      "facebook_link": artist.facebook_link,
+      "image_link": artist.image_link,
+      "past_shows": old_shows,
+      "upcoming_shows": future_shows,
+      "past_shows_count": len(old_shows),
+      "upcoming_shows_count": len(future_shows)
+    }
+
+
+    return render_template('pages/show_artist.html', artist=make_artist)
 
 #  Create Artist
 #  ----------------------------------------------------------------
@@ -304,7 +400,18 @@ def edit_artist_submission(artist_id):
 def shows():
   # displays list of shows at /shows
   shows = Show.query.all()
-  return render_template('pages/shows.html', shows=shows)
+  show_list = []
+  for show in shows:
+    show_list.append({
+        "venue_id": show.venue_id,
+        "artist_id": show.artist_id,
+        "artist_image_link": show.artist.image_link,
+        "start_time": format_datetime(str(show.start_time)),
+        "artist_name": show.artist.name,
+        "venue_name": show.venue.name,
+    })
+
+  return render_template('pages/shows.html', shows=show_list)
 
 @app.route('/shows/create')
 def create_shows():
@@ -314,19 +421,38 @@ def create_shows():
 
 @app.route('/shows/create', methods=['POST'])
 def create_show_submission():
-    # called to create new shows in the db, upon submitting new show listing form
-    # TODO: insert form data as a new Show record in the db, instead
 
     error = False
+    artist_exists = True
+    venue_exists = True
+
     try:
-        formShow = ShowForm()
-        theShow = Show(
-            venue_id=formShow.venue_id.data,
-            artist_id=formShow.artist_id.data,
-            start_time=formShow.start_time.data,
-        )
-        db.session.add(theShow)
-        db.session.commit()
+        # Prevent Crash
+        artist_id = request.form.get("artist_id")
+        venue_id = request.form.get("venue_id")
+        start_time = request.form.get("start_time")
+
+        # check artist
+        given_artist = Artist.query.get(artist_id)
+        if given_artist is None:
+            artist_exists = False
+
+        # check venue
+        given_venue = Venue.query.get(venue_id)
+        if given_venue is None:
+            venue_exists = False
+
+        if artist_exists and venue_exists:
+            formShow = ShowForm()
+            theShow = Show(
+                venue_id=formShow.venue_id.data,
+                artist_id=formShow.artist_id.data,
+                start_time=formShow.start_time.data,
+            )
+            db.session.add(theShow)
+            db.session.commit()
+
+
     except:
         error = True
         flash('An error occurred. Show could not be listed.')
@@ -337,9 +463,16 @@ def create_show_submission():
         if error:
             abort(400)
         else:
-            # on successful db insert, flash success
-            flash('Show was successfully listed!')
-            return render_template('pages/home.html')
+            if not artist_exists:
+                flash('The Artist with id: ' + request.form.get('artist_id') + ' doesn\'t exist. Try agin.')
+                return render_template('pages/home.html')
+            elif not venue_exists:
+                flash('The Venue with id: ' + request.form.get('venue_id') + ' doesn\'t exist. Try agin.')
+                return render_template('pages/home.html')
+            else :
+                # on successful db insert, flash success
+                flash('Show was successfully listed!')
+                return render_template('pages/home.html')
 
 
 @app.errorhandler(404)

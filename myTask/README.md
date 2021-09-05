@@ -44,7 +44,7 @@ Acceptance Criteria
   * [ ] Past shows versus Upcoming shows should be distinguished in Venue and Artist pages.
   * [ ] A user should be able to click on the venue for an upcoming show in the Artist's page, and on that Venue's page, see the same show in the Venue Page's upcoming shows section. (assumption: artist creates venues)
 
-4. [ ] Define the models in a different file such as `models.py`.
+4. [x] Define the models in a different file such as `models.py`.
   * [x] The right _type_ of relationship and parent-child dynamics.
   * [x] The relationship between the models should be accurately configured, and referential integrity amongst the models should be preserved.
 

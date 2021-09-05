@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, Response, flash, redirect, ur
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_moment import Moment
+from datetime import datetime
 
 
 
@@ -39,7 +40,6 @@ class Venue(db.Model):
     seeking_talent = db.Column(db.Boolean, default=False)
     shows = db.relationship('Show', backref='venue', lazy=True)
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
     def __repr__(self):
         return f'''||| >>> Venue :
         ID-> {self.id}
@@ -73,7 +73,6 @@ class Artist(db.Model):
     seeking_description = db.Column(db.String())
     shows = db.relationship('Show', backref='artist', lazy=True)
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
     def __repr__(self):
         return f'''||| >>> Artist :
         ID-> {self.id}
@@ -90,15 +89,10 @@ class Artist(db.Model):
         >'''
 
 
-# TODO Implement Show and Artist models,
-# and complete all model relationships and properties,
-# as a database migration.
-# 1. Show and Artist models
-# 2. model relationships and properties
 class Show(db.Model):
     __tablename__ = 'show'
 
     id = db.Column(db.Integer, primary_key=True)
     venue_id = db.Column(db.Integer, db.ForeignKey('venue.id'), nullable=False)
     artist_id = db.Column(db.Integer, db.ForeignKey('artist.id'), nullable=False)
-    start_time = db.Column(db.String(), nullable=False)
+    start_time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
