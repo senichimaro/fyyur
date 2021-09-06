@@ -18,6 +18,7 @@ import sys
 import os
 from models import *
 import datetime
+from config import app
 
 
 
@@ -54,7 +55,7 @@ def venues():
 
   no_repeat = set()
   clean_data = []
-  
+
   for ven in venues:
       no_repeat.add((ven.city, ven.state))
 
@@ -65,13 +66,21 @@ def venues():
           "venues": []
       })
 
-  print(">>>>>>> clean_data <<<<<<<<<<", clean_data)
   for vens in venues:
+      num_upcoming_shows = 0
+      total_shows = Show.query.filter_by(venue_id=vens.id).all()
+      present = datetime.datetime.now()
+      for show in total_shows:
+          if show.start_time > present:
+              num_upcoming_shows += 1
+
+
       for locate in clean_data:
           if vens.city == locate['city'] and vens.state == locate['state']:
               locate['venues'].append({
                   "id": vens.id,
                   "name": vens.name,
+                  "num_upcoming_shows": num_upcoming_shows,
               })
 
   return render_template('pages/venues.html', areas=clean_data);
@@ -97,12 +106,14 @@ def show_venue(venue_id):
   old_shows = []
   future_shows = []
   present = datetime.datetime.now()
+  artist_id = ""
   # print(">>>>>>>>>> present <<<<<<<<<<<<",present)
   for show in shows:
       artist_show = {}
       artist_show['venue_id'] = show.venue_id
       artist_show['artist_id'] = show.artist_id
       artist_show['start_time'] = format_datetime(str(show.start_time))
+      artist_show['artist_image_link'] = show.artist.image_link
       if show.start_time > present:
           future_shows.append(artist_show)
       else:
@@ -116,7 +127,7 @@ def show_venue(venue_id):
     "city": venue.city,
     "state": venue.state,
     "phone": venue.phone,
-    "website_link": venue.website_link,
+    "website": venue.website_link,
     "facebook_link": venue.facebook_link,
     "seeking_talent": venue.seeking_talent,
     "seeking_description":venue.seeking_description,
@@ -143,7 +154,7 @@ def create_venue_submission():
   error = False
   try:
       form_data = {}
-      form3 = VenueForm(meta={'csrf':False})
+      form3 = VenueForm(request.form)
       form_data['name'] = form3.name.data
       form_data['city'] = form3.city.data
       form_data['state'] = form3.state.data
@@ -228,7 +239,7 @@ def edit_venue_submission(venue_id):
   error = False
   try:
       venue = Venue.query.get(venue_id)
-      form3 = VenueForm()
+      form3 = VenueForm(request.form)
 
       venue.name = form3.name.data
       venue.city = form3.city.data
@@ -285,17 +296,18 @@ def show_artist(artist_id):
     old_shows = []
     future_shows = []
     present = datetime.datetime.now()
-    # print(">>>>>>>>>> present <<<<<<<<<<<<",present)
+
     for show in shows:
         artist_show = {}
         artist_show['venue_id'] = show.venue_id
         artist_show['artist_id'] = show.artist_id
         artist_show['start_time'] = format_datetime(str(show.start_time))
+        artist_show['venue_image_link'] = show.venue.image_link
         if show.start_time > present:
             future_shows.append(artist_show)
         else:
             old_shows.append(artist_show)
-    # -----
+
     make_artist = {
       "id": artist.id,
       "name": artist.name,
@@ -304,7 +316,10 @@ def show_artist(artist_id):
       "state": artist.state,
       "phone": artist.phone,
       "facebook_link": artist.facebook_link,
+      "website": artist.website_link,
       "image_link": artist.image_link,
+      "seeking_venue": artist.seeking_venue,
+      "seeking_description": artist.seeking_description,
       "past_shows": old_shows,
       "upcoming_shows": future_shows,
       "past_shows_count": len(old_shows),
@@ -327,7 +342,7 @@ def create_artist_submission():
 
   error = False
   try:
-      formArtist = ArtistForm()
+      formArtist = ArtistForm(request.form)
       theArtist = Artist(
           name=formArtist.name.data,
           city=formArtist.city.data,
@@ -370,7 +385,7 @@ def edit_artist_submission(artist_id):
   error = False
   try:
       artist = Artist.query.get(artist_id)
-      formArtist = ArtistForm()
+      formArtist = ArtistForm(request.form)
       artist.name = formArtist.name.data
       artist.city = formArtist.city.data
       artist.state = formArtist.state.data
@@ -447,7 +462,7 @@ def create_show_submission():
             venue_exists = False
 
         if artist_exists and venue_exists:
-            formShow = ShowForm()
+            formShow = ShowForm(request.form)
             theShow = Show(
                 venue_id=formShow.venue_id.data,
                 artist_id=formShow.artist_id.data,

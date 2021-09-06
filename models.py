@@ -7,21 +7,13 @@ from datetime import datetime
 
 
 #----------------------------------------------------------------------------#
-# App Config.
-#----------------------------------------------------------------------------#
-
-app = Flask(__name__)
-moment = Moment(app)
-app.config.from_object('config')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-# TODO: connect to a local postgresql database
-# Migrations setup
-migrate = Migrate(app, db)
-#----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
+from config import app
+# TODO: connect to a local postgresql database
+db = SQLAlchemy(app)
+# Migrations setup
+migrate = Migrate(app, db)
 
 class Venue(db.Model):
     __tablename__ = 'venue'
@@ -38,7 +30,7 @@ class Venue(db.Model):
     website_link = db.Column(db.String(500), nullable=True)
     seeking_description = db.Column(db.String(), nullable=True)
     seeking_talent = db.Column(db.Boolean, default=False)
-    shows = db.relationship('Show', backref='venue', lazy=True)
+    shows = db.relationship('Show', backref='venue', lazy='joined', cascade="all, delete")
 
     def __repr__(self):
         return f'''||| >>> Venue :
@@ -71,7 +63,7 @@ class Artist(db.Model):
     website_link = db.Column(db.String(500))
     seeking_venue = db.Column(db.Boolean, default=False)
     seeking_description = db.Column(db.String())
-    shows = db.relationship('Show', backref='artist', lazy=True)
+    shows = db.relationship('Show', backref='artist', lazy='joined', cascade="all, delete")
 
     def __repr__(self):
         return f'''||| >>> Artist :
