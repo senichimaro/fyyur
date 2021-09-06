@@ -16,11 +16,19 @@ from forms import *
 from flask_migrate import Migrate
 import sys
 import os
-from models import *
+from models import db, Artist, Venue, Show
 import datetime
-from config import app
 
 
+app = Flask(__name__)
+app.config.from_object('config')
+moment = Moment(app)
+
+
+# TODO: connect to a local postgresql database
+db.init_app(app)
+# Migrations setup
+migrate = Migrate(app, db)
 
 #----------------------------------------------------------------------------#
 # Filters.
@@ -108,10 +116,11 @@ def show_venue(venue_id):
   present = datetime.datetime.now()
   artist_id = ""
   # print(">>>>>>>>>> present <<<<<<<<<<<<",present)
-  for show in shows:
+  for show in venue.shows:
       artist_show = {}
       artist_show['venue_id'] = show.venue_id
       artist_show['artist_id'] = show.artist_id
+      artist_show['artist_name'] = show.artist.name
       artist_show['start_time'] = format_datetime(str(show.start_time))
       artist_show['artist_image_link'] = show.artist.image_link
       if show.start_time > present:
@@ -297,10 +306,11 @@ def show_artist(artist_id):
     future_shows = []
     present = datetime.datetime.now()
 
-    for show in shows:
+    for show in artist.shows:
         artist_show = {}
         artist_show['venue_id'] = show.venue_id
         artist_show['artist_id'] = show.artist_id
+        artist_show['venue_name'] = show.venue.name
         artist_show['start_time'] = format_datetime(str(show.start_time))
         artist_show['venue_image_link'] = show.venue.image_link
         if show.start_time > present:

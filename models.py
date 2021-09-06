@@ -9,11 +9,8 @@ from datetime import datetime
 #----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
-from config import app
-# TODO: connect to a local postgresql database
-db = SQLAlchemy(app)
-# Migrations setup
-migrate = Migrate(app, db)
+db = SQLAlchemy()
+
 
 class Venue(db.Model):
     __tablename__ = 'venue'

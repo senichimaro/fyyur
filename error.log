@@ -1,1 +1,534 @@
 
+2021-09-06 17:17:41,691 INFO: errors [in app.py:515]
+2021-09-06 17:18:03,188 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4758E00 (otid=0x000001CCD474EDC0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    venues = Venue.query.order_by('id').all()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:18:11,121 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD471EA90 (otid=0x000001CCD48229C0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    venues = Venue.query.order_by('id').all()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:22:18,621 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4846A90 (otid=0x000001CCD4848D00) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:22:23,882 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD481DCA0 (otid=0x000001CCD474E080) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:26:45,947 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4852670 (otid=0x000001CCD4830E40) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:26:49,044 ERROR: Exception on /artists [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD48521A0 (otid=0x000001CCD485F440) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 277, in artists
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:26:50,333 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD483B510 (otid=0x000001CCD4828340) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:27:19,638 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD481DE00 (otid=0x000001CCD4848C80) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:27:24,558 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4852930 (otid=0x000001CCD4828080) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:28:24,967 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4852B40 (otid=0x000001CCD486F280) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:28:29,088 ERROR: Exception on /shows [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD481D930 (otid=0x000001CCD475AB40) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 422, in shows
+    #  Shows
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:28:29,835 ERROR: Exception on /artists [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4868BF0 (otid=0x000001CCD48301C0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 277, in artists
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:28:31,129 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD482A300 (otid=0x000001CCD4879600) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:30:42,645 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD482A930 (otid=0x000001CCD4843AC0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:31:10,497 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD488B300 (otid=0x000001CCD4855500) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+    #  Venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:32:04,031 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD487CF60 (otid=0x000001CCD472F0C0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:32:34,783 ERROR: Exception on /artists [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD48521A0 (otid=0x000001CCD4878140) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 277, in artists
+    return redirect(url_for('show_venue', venue_id=venue_id))
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
+2021-09-06 17:32:36,832 ERROR: Exception on /venues [GET] [in C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py:1454]
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1008, in __call__
+    return self.registry[key]
+KeyError: <greenlet.greenlet object at 0x000001CCD4868880 (otid=0x000001CCD47376C0) current active started main>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 2070, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1515, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1513, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask\app.py", line 1499, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "app.py", line 55, in venues
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 514, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\scoping.py", line 47, in __call__
+    return self.registry()
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\util\_collections.py", line 1010, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\sqlalchemy\orm\session.py", line 4101, in __call__
+    return self.class_(**local_kw)
+  File "C:\Users\kido\PythonProjects\fullstack\fyyur_starter_code\env\lib\site-packages\flask_sqlalchemy\__init__.py", line 137, in __init__
+    track_modifications = app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
+KeyError: 'SQLALCHEMY_TRACK_MODIFICATIONS'
